@@ -28,13 +28,16 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
+  background-color: white;
 }
 
-.card {
+
+
+.card-password {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  box-shadow:black 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
@@ -54,7 +57,7 @@ header {
   min-height: 100px;
 }
 
-.card-footer {
+div.card-body > a {
   text-align: center;
 }
 
@@ -116,6 +119,11 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+div.col-12, 
+div.col-6,  
+div.col-md-3 {
+  border: 2px solid black;
 }
 
 @media (max-width: 690px) {
