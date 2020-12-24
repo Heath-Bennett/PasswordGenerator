@@ -45,47 +45,86 @@
 
       <div class="container=fluid">
         <div class="row">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 offset-1">
             <div class="row">
               <div class="col-12">
                 <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="..." alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Options</h5>
+                    <form>
+                      <fieldset>
+                        
+                        <div>
+                          <label for="customRange2" class="form-label">How many Characters?</label>
+                          <input type="range" class="form-range" min="8" max="128" step="1" id="customRange2" value=" ">
+                          <p>You chose: <output id="charValue">24</output> </p>
+                        </div>
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="lowercase">
+                          <label class="form-check-label" for="lowercase">
+                            Lowercase Characters
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="uppercase" checked>
+                          <label class="form-check-label" for="flexCheckChecked">
+                            Uppercase Characters
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="numeric">
+                          <label class="form-check-label" for="numeric">
+                            Numeric Characters
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="special" checked>
+                          <label class="form-check-label" for="special">
+                            Special Characters
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="omitChar" checked>
+                          <label class="form-check-label" for="omitChar">
+                            Omit Characters?
+                          </label>
+                          
+                        </div>
+                        <p>You will be prompted for the characters you wish to omit upon clicking Generate New Password</p>
+                      </fieldset>
+                    </form>
                   </div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="..." alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Phonetic Alphabet</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-3">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="col-12 col-md-4">
+            <div class="card">
+              <figure>
+                <img src="../Assets/padlock.jpg" alt="Data vortex">
+              </figure>
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                
               </div>
             </div>
           </div>
           <div class="col-12 col-md-3">
             <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="..." alt="Card image cap">
+              
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Previous Passwords</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                
               </div>
             </div>
           </div>
@@ -93,22 +132,17 @@
 
         <div class="row">
           <div class="col-6">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card" >
+              
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">Copy Password to Clipboard</a>
               </div>
             </div>
           </div>
           <div class="col-6">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card" >
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">Generate New Password</a>
               </div>
             </div>
           </div>
