@@ -21,7 +21,6 @@ body {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #B3E0F2;
 }
 
 header {
@@ -29,16 +28,13 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
-  background-color: white;
 }
 
-
-
-.card-password {
+.card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
-  box-shadow:black 0px 2px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
@@ -58,7 +54,7 @@ header {
   min-height: 100px;
 }
 
-div.card-body > a, div.card-body > h5 {
+.card-footer {
   text-align: center;
 }
 
@@ -78,8 +74,7 @@ div.card-body > a, div.card-body > h5 {
 
 .btn {
   border: none;
-  /* background-color: hsl(360, 91%, 36%); */
-  background-color: #012340;
+  background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -122,14 +117,6 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
-div.col-12, 
-div.col-6,  
-div.col-md-3 {
-  border: 2px solid black;
-}
-
-
-
 
 @media (max-width: 690px) {
   .btn {

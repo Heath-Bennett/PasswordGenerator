@@ -1,0 +1,62 @@
+h1{
+    padding:15px;
+    font-size: 64px;
+}
+div.blue {
+    border: 2px solid blue;
+}
+
+div.red {
+    border: 2px solid red;
+    padding:10px;
+}
+
+label.form-label {
+    font-size: 25px;
+}
+
+img{
+    max-width: 95%;
+    border:5px solid #F2E530;
+}
+div.vortex{
+    text-align: center;
+}
+
+#password {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    display: block;
+    width: 100%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 85px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px dashed #c0c7cf;
+    border-radius: 6px;
+    resize: none;
+    overflow: hidden;
+}
+
+.card-password{
+    padding: 30px 40px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+div.card{
+    padding:5px;
+}
+.card-body {
+    min-height: 100px;
+}
+
+div.col-12, div.col-md-4 {
+    margin:auto;
+}
