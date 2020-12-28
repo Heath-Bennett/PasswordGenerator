@@ -25,12 +25,19 @@ h2.passwords {
 main {
     margin-top:50px;;
 }
-div.red {
+#options-border, div.created-passwords{
     border-radius: 25px;
     border: 2px solid #05F2F2;
     padding:10px;
     margin:10px;
     
+}
+
+#p-alphabet-border{
+    border-radius: 25px;
+    border: 2px dashed gray;
+    padding:10px;
+    margin:10px;
 }
 
 fieldset > p {

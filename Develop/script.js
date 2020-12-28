@@ -24,14 +24,28 @@ function updateOutput (){
 // generateBtn.addEventListener("click", writePassword);
 
 
-document.getElementById("copied").addEventListener("click", toggleDisabled);
+document.getElementById("toggle").addEventListener("click", toggleDisabled);
 
 
 function toggleDisabled(){
-  document.getElementById("options").removeAttribute("disabled");
-  console.log("event heard")
+  const optionsValue = document.getElementById("options");
+  const phoneticValue = document.getElementById("p-alphabet");
+  const optionBorder = document.getElementById("options-border");
+  const phoneticBorder = document.getElementById("p-alphabet-border");
+
+  if (optionsValue.hasAttribute("disabled")){
+    optionsValue.removeAttribute("disabled");
+    optionBorder.style.border = "2px solid #05F2F2";
+    phoneticValue.setAttribute("disabled", true);
+    phoneticBorder.style.border = "2px dashed gray";
+
+    
+  }
+  else {
+    optionsValue.setAttribute("disabled", true);
+    optionBorder.style.border = "2px dashed gray"
+    phoneticValue.removeAttribute("disabled");
+    phoneticBorder.style.border = "2px solid #05F2F2";
+  }
 }
 
-function toggleEnabled(){
-  document.getElementById("options").setAttribute("disabled", true);
-}
