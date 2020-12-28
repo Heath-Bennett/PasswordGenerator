@@ -16,15 +16,15 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 col-md-4 blue">
-            <div class="row red">
+            <div class="row red choices">
               <div class="col-12">
                 <form>
-                  <fieldset>
-                    <h2>Options</h2>
+                  <fieldset id="options"  disabled >
+                    <h2 class="choices">Options</h2>
                     <div>
-                      <label for="customRange2" class="form-label">How many Characters 8 - 128?</label>
+                      <label for="customRange2" class="form-label">How many Characters (8 - 128)?</label>
                       <input type="range" class="form-range" min="8" max="128" step="1" id="customRange2" value=" ">
-                      <p>You chose: <output id="charValue">24</output> </p>
+                      <p>You chose <output id="charValue">68</output> characters.</p>
                     </div>
 
                     <div class="form-check">
@@ -54,38 +54,41 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="omitChar" checked>
                       <label class="form-check-label" for="omitChar">
-                        Omit Characters?
+                        Omit Characters*
                       </label>
                       
                     </div>
-                    <p>You will be prompted for the characters you wish to omit upon clicking Generate New Password</p>
+                    <p>*You will be prompted for the characters you wish to omit upon clicking "Generate New Password"</p>
+                    <p>**Can not be combined with Phonetic Alphabet</p>
                   </fieldset>
                 </form>
 
               </div>
             </div>
-            <div class="row red">
+            <div class="row red choices">
               <div class="col-12">
-                <h2>Phonetic Alphabet</h2>
+                <h2 class="choices">Phonetic Alphabet</h2>
                     <p>A new password trend is phrases all in lowercase. This will create a phrase from a word you provide using the phonetic alphabet.</p>
                     <form>
-                      <fieldset>
+                      <fieldset id="p-alphabet">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="withSpaces">
+                          <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="withSpaces" >
                           <label class="form-check-label" for="withSpaces">
                             Include Spaces Between Words
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="withoutSpaces" checked>
+                          <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="withoutSpaces"  checked>
                           <label class="form-check-label" for="withoutSpaces">
                             Do Not Include Spaces Between Words
                           </label>
                         </div>
                         <div class="input-group mb-3">
                           <span class="input-group-text" id="inputGroup-sizing-default">Enter Word</span>
-                          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                          <input type="text" class="form-control phonetic" placeholder="Max length 8 characters" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                         </div>
+
+                        <p>**Can not be combined with Options</p>
                       </fieldset>
                     </form>
 
@@ -95,7 +98,7 @@
           </div>
           <div class="col-12 col-md-4 blue vortex">
             <img src="../Assets/secureData2.jpg" alt="Secure Data">
-            
+            <button type="button" id="toggle" class="btn btn-primary toggle">Toggle Between Options and Phonetic Alphabet</button>
           </div>
           <div class="col-12 col-md-4 blue">
             <div class="row red">
@@ -103,10 +106,11 @@
                 <div class="card card-password" >
                   <div class="card-body">
                     <header>
-                    <h2 class="card-title">Current Password</h2>
+                    <h2 class="card-title passwords">Current Password</h2>
                     </header>
                     <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
-                    <a href="#" type="button" class="btn btn-primary">Generate New Password</a>
+                    <!-- <a href="#" type="button" id="generate" class="btn btn-primary">Generate New Password</a> -->
+                    <button type="button" class="btn btn-primary new-password">Copy Password to Clipboard</button>
                   </div>
                 </div>
               </div>
@@ -116,10 +120,11 @@
                 <div class="card card-password" >
                   <div class="card-body">
                     <header>
-                    <h2 class="card-title">Passwords Generated This Session</h2>
+                    <h2 class="card-title passwords">Passwords Generated This Session</h2>
                     </header>
-                    <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
-                    <a href="#" type="button" class="btn btn-primary">Copy Password to Clipboard</a>
+                    <textarea readonly id="password" placeholder="Password History" aria-label="Generated Password"></textarea>
+                    <!-- <a href="#" type="button" class="btn btn-primary" id="test">Copy Password to Clipboard</a> -->
+                    <button type="button" class="btn btn-primary new-password">Copy Password to Clipboard</button>
                   </div>
                 </div>
               </div>

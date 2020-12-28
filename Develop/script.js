@@ -10,5 +10,28 @@ function writePassword() {
 
 }
 
+document.getElementById("customRange2").addEventListener("change", updateOutput);
+
+function updateOutput (){
+  // document.getElementByTagName("output").value = document.getElementById("customRange2").value;
+  const x = document.getElementById("charValue");
+  const y = document.getElementById("customRange2").value;
+  console.log(x.value);
+  x.innerHTML = y;
+}
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
+
+
+document.getElementById("copied").addEventListener("click", toggleDisabled);
+
+
+function toggleDisabled(){
+  document.getElementById("options").removeAttribute("disabled");
+  console.log("event heard")
+}
+
+function toggleEnabled(){
+  document.getElementById("options").setAttribute("disabled", true);
+}

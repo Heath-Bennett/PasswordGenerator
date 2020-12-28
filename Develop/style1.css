@@ -1,26 +1,64 @@
+body {
+    background-color: #011C40;
+}
 h1{
     padding:15px;
     font-size: 64px;
-}
-div.blue {
-    border: 2px solid blue;
+    color:#E21872;
+    background-color: #011126;
+    border-bottom: 2px solid #05F2F2;
 }
 
+output {
+    color:#E21872;
+    font-weight: bold;
+}
+
+h2.choices {
+    color:#E21872;
+}
+
+h2.passwords {
+    color:#0455BF;
+}
+
+main {
+    margin-top:50px;;
+}
 div.red {
-    border: 2px solid red;
+    border-radius: 25px;
+    border: 2px solid #05F2F2;
     padding:10px;
+    margin:10px;
+    
+}
+
+fieldset > p {
+    margin-top: 15px;
+}
+
+fieldset > div > input, div > span {
+    margin-top: 15px;
+}
+
+fieldset > div > input:hover{
+    border: 5px solid #E21872;
 }
 
 label.form-label {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 img{
     max-width: 95%;
-    border:5px solid #F2E530;
+    border:2px solid #011126;
 }
 div.vortex{
     text-align: center;
+}
+
+div.choices {
+    color:white;
 }
 
 #password {
@@ -59,4 +97,13 @@ div.card{
 
 div.col-12, div.col-md-4 {
     margin:auto;
+}
+
+button.new-password {
+    background-color: #011C40 ;
+}
+
+button.toggle {
+    background-color: #E21872;
+    margin-top: 20px;
 }
