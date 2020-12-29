@@ -16,6 +16,12 @@ var phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "g
 var wantSpaces = true;
 var whatArray = [];
 
+//Declare constant variables
+const optionsValue = document.getElementById("options");
+const phoneticValue = document.getElementById("p-alphabet");
+const optionBorder = document.getElementById("options-border");
+const phoneticBorder = document.getElementById("p-alphabet-border");
+
 //check to determine password version and options user selected
 function userOptions(){
   if (optionsValue.hasAttribute("disabled")){
@@ -30,89 +36,56 @@ function userOptions(){
   }
   else{
     if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true){
-      whatArray.concat(lowercase, uppercase, numbers, special);
+      whatArray = whatArray.concat(lowercase, uppercase, numbers, special);
     }
     else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true) {
-      whatArray.concat(lowercase, uppercase, special);
+      whatArray = whatArray.concat(lowercase, uppercase, special);
     }
     else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true) {
-      whatArray.concat(lowercase, uppercase, numeric);
+      whatArray = whatArray.concat(lowercase, uppercase, numbers);
     }
     else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true) {
-      whatArray.concat(lowercase, numeric, special);
+      whatArray = whatArray.concat(lowercase, numbers, special);
     }
     else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true && document.getElementById("numeric").checked === true) {
-      whatArray.concat(uppercase, special, numeric);
+      whatArray = whatArray.concat(uppercase, special, numbers);
     }
     else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true){
-      whatArray.concat(lowercase, uppercase);
+      whatArray = whatArray.concat(lowercase, uppercase);
     }
     else if(document.getElementById("lowercase").checked === true && document.getElementById("special").checked === true){
-      whatArray.concat(lowercase, special);
+      whatArray = whatArray.concat(lowercase, special);
     }
     else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true){
-      whatArray.concat(lowercase, numeric);
+      whatArray = whatArray.concat(lowercase, numbers);
     }
     else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true){
-      whatArray.concat(uppercase, special);
+      whatArray = whatArray.concat(uppercase, special);
     }
-    else if(document.getElementById("uppercases").checked === true && document.getElementById("numeric").checked === true){
-      whatArray.concat(uppercase, numeric);
+    else if(document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true){
+      whatArray = whatArray.concat(uppercase, numbers);
     }
     else if(document.getElementById("special").checked === true && document.getElementById("numeric").checked === true){
-      whatArray.concat(special, numeric);
+      whatArray = whatArray.concat(special, numbers);
     }
     else if(document.getElementById("lowercase").checked === true){
-      whatArray.concat(lowercase);
+      whatArray = whatArray.concat(lowercase);
     }
     else if(document.getElementById("uppercase").checked === true){
-      whatArray.concat(uppercase);
+      whatArray = whatArray.concat(uppercase);
     }
     else if(document.getElementById("special").checked === true){
-      whatArray.concat(special);
+      whatArray = whatArray.concat(special);
     }
     else{
-      whatArray.concat(numeric);
+      whatArray = whatArray.concat(numbers);
     }
 
   }
 }
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-//Checks to see if the password length is changing
-document.getElementById("customRange2").addEventListener("change", updateOutput);
-
-//Displays the value chose by user
-function updateOutput (){
-  const x = document.getElementById("charValue");
-  const y = document.getElementById("customRange2").value;
-  console.log(x.value);
-  x.innerHTML = y;
-}
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-//Checks to see if the toggle between options and phonetic alphabet button has been clicked
-document.getElementById("toggle").addEventListener("click", toggleDisabled);
-
 //Checks to see if the option form is disabled if it is it enables it and disables phonetic alphabet and Vise versa. 
 function toggleDisabled(){
-  const optionsValue = document.getElementById("options");
-  const phoneticValue = document.getElementById("p-alphabet");
-  const optionBorder = document.getElementById("options-border");
-  const phoneticBorder = document.getElementById("p-alphabet-border");
 
   if (optionsValue.hasAttribute("disabled")){
     optionsValue.removeAttribute("disabled");
@@ -129,4 +102,36 @@ function toggleDisabled(){
     phoneticBorder.style.border = "2px solid #05F2F2";
   }
 }
+
+//Displays the value chose by user
+function updateOutput (){
+  const x = document.getElementById("charValue");
+  const y = document.getElementById("customRange2").value;
+  console.log(x.value);
+  x.innerHTML = y;
+}
+
+function displayResults() {
+  userOptions();
+
+  for (let i = 0; i < whatArray.length; i++){
+    console.log(whatArray[i]);
+  }
+  console.log(wantSpaces);
+  whatArray = [];
+  wantSpaces = true;
+}
+
+
+
+//Checks to see if the password length is changing
+document.getElementById("customRange2").addEventListener("change", updateOutput);
+
+
+//Checks to see if the toggle between options and phonetic alphabet button has been clicked
+document.getElementById("toggle").addEventListener("click", toggleDisabled);
+
+document.getElementById("new-password").addEventListener("click", displayResults);
+
+
 
