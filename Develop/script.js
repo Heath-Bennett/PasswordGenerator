@@ -107,7 +107,19 @@ function omitCharacters(){
 
 //This function handles the word entered by user for phonetic alphabet
 function userWord(){
-  
+  let userInput = document.getElementById("phonetic-word").value;
+  let twoWords = false;
+
+  for (let i = 0; i < userInput.length; i++){
+    if (userInput[i] === " "){
+      twoWords === true;
+    }
+  }
+
+  while (userInput === null || userInput.length > 8 || twoWords === true){
+    userInput = prompt("Please enter one word 8 letters or less.")
+  }
+  console.log(userInput);
 }
 
 //Checks to see if the option form is disabled if it is it enables it and disables phonetic alphabet and Vise versa. 
@@ -139,6 +151,7 @@ function updateOutput (){
 
 function displayResults() {
   userOptions();
+  userWord();
 
   for (let i = 0; i < whatArray.length; i++){
     console.log(whatArray[i]);
