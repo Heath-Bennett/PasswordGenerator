@@ -1,3 +1,20 @@
+
+//Create Arrays
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+var special = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~", "\\"];
+
+var omit = [];
+
+var allFour = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~", "\\" ];
+
+var phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -10,10 +27,11 @@ function writePassword() {
 
 }
 
+//Checks to see if the password length is changing
 document.getElementById("customRange2").addEventListener("change", updateOutput);
 
+//Displays the value chose by user
 function updateOutput (){
-  // document.getElementByTagName("output").value = document.getElementById("customRange2").value;
   const x = document.getElementById("charValue");
   const y = document.getElementById("customRange2").value;
   console.log(x.value);
@@ -23,10 +41,10 @@ function updateOutput (){
 // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
 
-
+//Checks to see if the toggle between options and phonetic alphabet button has been clicked
 document.getElementById("toggle").addEventListener("click", toggleDisabled);
 
-
+//Checks to see if the option form is disabled if it is it enables it and disables phonetic alphabet and Vise versa. 
 function toggleDisabled(){
   const optionsValue = document.getElementById("options");
   const phoneticValue = document.getElementById("p-alphabet");
