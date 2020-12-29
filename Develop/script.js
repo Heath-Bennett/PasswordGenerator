@@ -81,7 +81,33 @@ function userOptions(){
       whatArray = whatArray.concat(numbers);
     }
 
+    if (document.getElementById("omitChar").checked === true) {
+      omitCharacters();
+    }
   }
+}
+
+//This function prompts users for the characters they would like to omit
+function omitCharacters(){
+  let anotherCharacter = true;
+  while (anotherCharacter === true){
+    let userPrompt = prompt("What character would you like to omit?", "enter one at a time");
+    
+    if (userPrompt.length !== 1){
+      while (userPrompt.length !== 1){
+        userPrompt = prompt("You did not enter one character.  Please try again.");
+      }
+    }
+    else {
+      omit.push(userPrompt);
+      anotherCharacter = confirm("Would you like to omit another character?");
+    }
+  }
+}
+
+//This function handles the word entered by user for phonetic alphabet
+function userWord(){
+  
 }
 
 //Checks to see if the option form is disabled if it is it enables it and disables phonetic alphabet and Vise versa. 
