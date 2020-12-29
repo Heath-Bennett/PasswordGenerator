@@ -10,24 +10,70 @@ var special = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",",
 
 var omit = [];
 
-var allFour = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~", "\\" ];
-
 var phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
 
 //Declare Global Variables
 var wantSpaces = true;
+var whatArray = [];
 
 //check to determine password version and options user selected
 function userOptions(){
   if (optionsValue.hasAttribute("disabled")){
-    if (document.getElementById("withSpaces").checked = true){
+    if (document.getElementById("withSpaces").checked === true){
       wantSpaces = true;
+      whatArray = whatArray.concat(phoneticAlpha);
     }
     else{
       wantSpaces = false;
+      whatArray = whatArray.concat(phoneticAlpha);
     }
   }
   else{
+    if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true){
+      whatArray.concat(lowercase, uppercase, numbers, special);
+    }
+    else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true) {
+      whatArray.concat(lowercase, uppercase, special);
+    }
+    else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true) {
+      whatArray.concat(lowercase, uppercase, numeric);
+    }
+    else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true) {
+      whatArray.concat(lowercase, numeric, special);
+    }
+    else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true && document.getElementById("numeric").checked === true) {
+      whatArray.concat(uppercase, special, numeric);
+    }
+    else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true){
+      whatArray.concat(lowercase, uppercase);
+    }
+    else if(document.getElementById("lowercase").checked === true && document.getElementById("special").checked === true){
+      whatArray.concat(lowercase, special);
+    }
+    else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true){
+      whatArray.concat(lowercase, numeric);
+    }
+    else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true){
+      whatArray.concat(uppercase, special);
+    }
+    else if(document.getElementById("uppercases").checked === true && document.getElementById("numeric").checked === true){
+      whatArray.concat(uppercase, numeric);
+    }
+    else if(document.getElementById("special").checked === true && document.getElementById("numeric").checked === true){
+      whatArray.concat(special, numeric);
+    }
+    else if(document.getElementById("lowercase").checked === true){
+      whatArray.concat(lowercase);
+    }
+    else if(document.getElementById("uppercase").checked === true){
+      whatArray.concat(uppercase);
+    }
+    else if(document.getElementById("special").checked === true){
+      whatArray.concat(special);
+    }
+    else{
+      whatArray.concat(numeric);
+    }
 
   }
 }
