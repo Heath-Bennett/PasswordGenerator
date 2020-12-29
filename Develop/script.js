@@ -14,6 +14,23 @@ var allFour = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 
 var phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
 
+//Declare Global Variables
+var wantSpaces = true;
+
+//check to determine password version and options user selected
+function userOptions(){
+  if (optionsValue.hasAttribute("disabled")){
+    if (document.getElementById("withSpaces").checked = true){
+      wantSpaces = true;
+    }
+    else{
+      wantSpaces = false;
+    }
+  }
+  else{
+
+  }
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
