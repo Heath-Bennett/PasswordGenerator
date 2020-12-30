@@ -108,16 +108,25 @@ function omitCharacters(){
 //This function handles the word entered by user for phonetic alphabet
 function userWord(){
   let userInput = document.getElementById("phonetic-word").value;
-  let twoWords = false;
-
-  for (let i = 0; i < userInput.length; i++){
-    if (userInput[i] === " "){
-      twoWords === true;
-    }
+  let notValid = false;
+  
+  if(/^[a-zA-Z]+$/.test(userInput)){
+    notValid= false;
+  }
+  else{
+    notValid = true;
   }
 
-  while (userInput === null || userInput.length > 8 || twoWords === true){
-    userInput = prompt("Please enter one word 8 letters or less.")
+  while (userInput.length > 8 || notValid === true){
+    userInput = prompt("Please enter one word 8 letters or less.");  
+
+    if(/^[a-zA-Z]+$/.test(userInput)){
+      notValid = false;
+    }
+    else{
+      notValid = true;
+    }
+    
   }
   console.log(userInput);
 }
