@@ -12,9 +12,15 @@ var omit = [];
 
 var phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
 
+var whatArray = [];
+
+var finalPassword = [];
+
 //Declare Global Variables
 var wantSpaces = true;
-var whatArray = [];
+var inputWord = "";
+var password = "";
+
 
 //Declare constant variables
 const optionsValue = document.getElementById("options");
@@ -107,9 +113,9 @@ function omitCharacters(){
 
 //This function handles the word entered by user for phonetic alphabet
 function userWord(){
-  let userInput = document.getElementById("phonetic-word").value;
   let notValid = false;
-  
+  let userInput = document.getElementById("phonetic-word").value;
+
   if(/^[a-zA-Z]+$/.test(userInput)){
     notValid= false;
   }
@@ -128,7 +134,9 @@ function userWord(){
     }
     
   }
+  //***************For Test Purposes only**************/
   console.log(userInput);
+  inputWord = userInput;
 }
 
 //Checks to see if the option form is disabled if it is it enables it and disables phonetic alphabet and Vise versa. 
@@ -158,6 +166,43 @@ function updateOutput (){
   x.innerHTML = y;
 }
 
+//Generate password to be displayed in the current password card
+function generatePassword(){
+  userOptions();
+
+  if (optionsValue.hasAttribute("disabled")){
+    //This is only for testing*************************************************************
+    console.log("Did we get here?")
+    userWord();
+    if (wantSpaces === true){
+      for(let i = 0; i < inputWord.length; i++){
+        for(let j = 0; j < phoneticAlpha.length; j++){
+          if (inputWord[i].charAt(0) === phoneticAlpha[j].charAt(0)){
+            finalPassword.push(phoneticAlpha[j]);
+          }
+        }
+      }
+
+      password = finalPassword.join(', ');
+    }
+    else{
+      for(let i = 0; i < inputWord.length; i++){
+        for(let j = 0; j < phoneticAlpha.length; j++){
+          if (inputWord[i].charAt(0) === phoneticAlpha[j].charAt(0)){
+            finalPassword.push(phoneticAlpha[j]);
+            //This is only for testing******************************************************
+            console.log("hit this point")
+          }
+        }
+      }
+      password = finalPassword.join();
+    }
+  }
+  /*************This is for Test Purposes only*************/
+  console.log(password);
+}
+
+//***************This is for test purposes only***********************
 function displayResults() {
   userOptions();
   userWord();
@@ -168,6 +213,7 @@ function displayResults() {
   console.log(wantSpaces);
   whatArray = [];
   wantSpaces = true;
+  console.log("Test#2: " + inputWord);
 }
 
 
@@ -179,7 +225,7 @@ document.getElementById("customRange2").addEventListener("change", updateOutput)
 //Checks to see if the toggle between options and phonetic alphabet button has been clicked
 document.getElementById("toggle").addEventListener("click", toggleDisabled);
 
-document.getElementById("new-password").addEventListener("click", displayResults);
+document.getElementById("new-password").addEventListener("click", generatePassword);
 
 
 
