@@ -20,6 +20,7 @@ var finalPassword = [];
 var wantSpaces = true;
 var inputWord = "";
 var password = "";
+var randomChar = "";
 
 
 //Declare constant variables
@@ -27,6 +28,8 @@ const optionsValue = document.getElementById("options");
 const phoneticValue = document.getElementById("p-alphabet");
 const optionBorder = document.getElementById("options-border");
 const phoneticBorder = document.getElementById("p-alphabet-border");
+const passwordLength = document.getElementById("customRange2").value;
+const passwordCard = document.getElementById("password");
 
 //check to determine password version and options user selected
 function userOptions(){
@@ -171,6 +174,7 @@ function generatePassword(){
   userOptions();
 
   if (optionsValue.hasAttribute("disabled")){
+
     //This is only for testing*************************************************************
     console.log("Did we get here?")
     userWord();
@@ -190,6 +194,7 @@ function generatePassword(){
         for(let j = 0; j < phoneticAlpha.length; j++){
           if (inputWord[i].charAt(0) === phoneticAlpha[j].charAt(0)){
             finalPassword.push(phoneticAlpha[j]);
+
             //This is only for testing******************************************************
             console.log("hit this point")
           }
@@ -198,8 +203,41 @@ function generatePassword(){
       password = finalPassword.join();
     }
   }
+  else{
+    createPassword();
+    password = finalPassword.join();
+
+    /*************************This is test purposes only*************************/
+    console.log("We reached here");
+    console.log("array length: " + finalPassword.length);
+    console.log("whatArray length " + whatArray.length);
+    for (let j = 0; j < finalPassword.length; j++){
+      console.log(finalPassword[j]);
+    }
+  }
   /*************This is for Test Purposes only*************/
   console.log(password);
+  passwordCard.value = password;
+  password="";
+  finalPassword = [];
+  whatArray=[];
+}
+//Generate a random number between zero and length of the array
+function randomNumber(anArray){
+  randomChar = anArray[Math.floor(Math.random()*anArray.length)];
+  return randomChar;
+}
+
+//Generate a random password
+function createPassword(){
+  let tmpholding = "";
+
+  for (let i = 0; i < passwordLength; i ++){
+    tmpholding = randomNumber(whatArray);
+    //****************Testing purposes only**************************************** */
+    console.log("tmpHolding: " + tmpholding);
+    finalPassword.push(tmpholding);
+  }
 }
 
 //***************This is for test purposes only***********************
