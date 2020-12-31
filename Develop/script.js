@@ -21,6 +21,7 @@ var wantSpaces = true;
 var inputWord = "";
 var password = "";
 var randomChar = "";
+var passwordLength = document.getElementById("customRange2").value;
 
 
 //Declare constant variables
@@ -28,7 +29,6 @@ const optionsValue = document.getElementById("options");
 const phoneticValue = document.getElementById("p-alphabet");
 const optionBorder = document.getElementById("options-border");
 const phoneticBorder = document.getElementById("p-alphabet-border");
-const passwordLength = document.getElementById("customRange2").value;
 const passwordCard = document.getElementById("password");
 
 //check to determine password version and options user selected
@@ -118,6 +118,7 @@ function omitCharacters(){
 function userWord(){
   let notValid = false;
   let userInput = document.getElementById("phonetic-word").value;
+  userInput = userInput.toLowerCase();
 
   if(/^[a-zA-Z]+$/.test(userInput)){
     notValid= false;
@@ -137,8 +138,6 @@ function userWord(){
     }
     
   }
-  //***************For Test Purposes only**************/
-  console.log(userInput);
   inputWord = userInput;
 }
 
@@ -165,18 +164,16 @@ function toggleDisabled(){
 function updateOutput (){
   const x = document.getElementById("charValue");
   const y = document.getElementById("customRange2").value;
-  console.log(x.value);
   x.innerHTML = y;
 }
 
 //Generate password to be displayed in the current password card
 function generatePassword(){
+  passwordLength = document.getElementById("customRange2").value;
   userOptions();
+  
 
   if (optionsValue.hasAttribute("disabled")){
-
-    //This is only for testing*************************************************************
-    console.log("Did we get here?")
     userWord();
     if (wantSpaces === true){
       for(let i = 0; i < inputWord.length; i++){
@@ -187,41 +184,48 @@ function generatePassword(){
         }
       }
 
-      password = finalPassword.join(', ');
+      password = finalPassword.join(" ");
     }
     else{
       for(let i = 0; i < inputWord.length; i++){
         for(let j = 0; j < phoneticAlpha.length; j++){
           if (inputWord[i].charAt(0) === phoneticAlpha[j].charAt(0)){
             finalPassword.push(phoneticAlpha[j]);
-
-            //This is only for testing******************************************************
-            console.log("hit this point")
           }
         }
       }
-      password = finalPassword.join();
+      password = finalPassword.join("");
     }
   }
   else{
-    createPassword();
-    password = finalPassword.join();
+    if (document.getElementById("omitChar").checked === true){
 
-    /*************************This is test purposes only*************************/
-    console.log("We reached here");
-    console.log("array length: " + finalPassword.length);
-    console.log("whatArray length " + whatArray.length);
-    for (let j = 0; j < finalPassword.length; j++){
-      console.log(finalPassword[j]);
+      whatArray = whatArray.filter(function(char){
+        return !omit.includes(char);
+      });
+
+      createPassword();
+      password = finalPassword.join("");
+    }
+    else{
+      createPassword();
+      password = finalPassword.join("");
     }
   }
   /*************This is for Test Purposes only*************/
   console.log(password);
+
+  for (let character = 0; character < omit.length; character++){
+    console.log("in omit array: " + omit[character]);
+  }
+  //******************************************************** */
   passwordCard.value = password;
   password="";
   finalPassword = [];
   whatArray=[];
+  omit = [];
 }
+
 //Generate a random number between zero and length of the array
 function randomNumber(anArray){
   randomChar = anArray[Math.floor(Math.random()*anArray.length)];
@@ -234,8 +238,6 @@ function createPassword(){
 
   for (let i = 0; i < passwordLength; i ++){
     tmpholding = randomNumber(whatArray);
-    //****************Testing purposes only**************************************** */
-    console.log("tmpHolding: " + tmpholding);
     finalPassword.push(tmpholding);
   }
 }
