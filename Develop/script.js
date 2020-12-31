@@ -1,16 +1,16 @@
 
 //Create Arrays
-var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-var special = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~", "\\"];
+const special = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~", "\\"];
 
 var omit = [];
 
-var phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
+const phoneticAlpha = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu"];
 
 var whatArray = [];
 
@@ -22,6 +22,12 @@ var inputWord = "";
 var password = "";
 var randomChar = "";
 var passwordLength = document.getElementById("customRange2").value;
+var index = 0; 
+var currentPassword = "";
+var previousPassword = "";
+var twoPriorPasswords = "";
+var threePriorPasswords = "";
+var oldestPasswordKept = "";
 
 
 //Declare constant variables
@@ -148,13 +154,13 @@ function toggleDisabled(){
     optionsValue.removeAttribute("disabled");
     optionBorder.style.border = "2px solid #05F2F2";
     phoneticValue.setAttribute("disabled", true);
-    phoneticBorder.style.border = "2px dashed gray";
+    phoneticBorder.style.border = "4px dotted gray";
 
     
   }
   else {
     optionsValue.setAttribute("disabled", true);
-    optionBorder.style.border = "2px dashed gray"
+    optionBorder.style.border = "4px dotted gray"
     phoneticValue.removeAttribute("disabled");
     phoneticBorder.style.border = "2px solid #05F2F2";
   }
@@ -220,6 +226,7 @@ function generatePassword(){
   }
   //******************************************************** */
   passwordCard.value = password;
+  sendToHistory();
   password="";
   finalPassword = [];
   whatArray=[];
@@ -240,6 +247,68 @@ function createPassword(){
     tmpholding = randomNumber(whatArray);
     finalPassword.push(tmpholding);
   }
+}
+
+function sendToHistory(){
+  switch(index){
+    case 0:
+      console.log("reached here");
+      currentPassword = password;
+      document.getElementById("currPassLabel").innerHTML = abbrvPassword(currentPassword);
+      index ++;
+      break;
+    case 1:
+      console.log("case 1");
+      previousPassword = currentPassword;
+      currentPassword = password; 
+      document.getElementById("prePassLabel").innerHTML = abbrvPassword(previousPassword);
+      document.getElementById("currPassLabel").innerHTML = abbrvPassword(currentPassword);  
+      index ++;
+      break;
+    case 2:
+      twoPriorPasswords = previousPassword;
+      previousPassword = currentPassword;
+      currentPassword = password;
+      document.getElementById("twoPriorLabel").innerHTML = abbrvPassword(twoPriorPasswords);
+      document.getElementById("prePassLabel").innerHTML = abbrvPassword(previousPassword);
+      document.getElementById("currPassLabel").innerHTML = abbrvPassword(currentPassword);
+      index++;
+      break;
+    case 3:
+      threePriorPasswords = twoPriorPasswords;
+      twoPriorPasswords = previousPassword;
+      previousPassword = currentPassword;
+      currentPassword = password;
+      document.getElementById("threePriorLabel").innerHTML = abbrvPassword(threePriorPasswords);
+      document.getElementById("twoPriorLabel").innerHTML = abbrvPassword(twoPriorPasswords);
+      document.getElementById("prePassLabel").innerHTML = abbrvPassword(previousPassword);
+      document.getElementById("currPassLabel").innerHTML = abbrvPassword(currentPassword);
+      index++;
+      break;
+    case 4:
+      oldestPasswordKept = threePriorPasswords;
+      threePriorPasswords = twoPriorPasswords;
+      twoPriorPasswords = previousPassword;
+      previousPassword = currentPassword;
+      currentPassword = password;
+      document.getElementById("oldPassLabel").innerHTML=abbrvPassword(oldestPasswordKept);
+      document.getElementById("threePriorLabel").innerHTML = abbrvPassword(threePriorPasswords);
+      document.getElementById("twoPriorLabel").innerHTML = abbrvPassword(twoPriorPasswords);
+      document.getElementById("prePassLabel").innerHTML = abbrvPassword(previousPassword);
+      document.getElementById("currPassLabel").innerHTML = abbrvPassword(currentPassword);
+      break;
+  }
+
+
+}
+
+function abbrvPassword(passString){
+  let tmpPassword = "";
+
+  tmpPassword = passString.slice(0, 3) + "........." + passString.slice(-3);
+  
+  console.log(tmpPassword)
+  return tmpPassword;
 }
 
 //***************This is for test purposes only***********************

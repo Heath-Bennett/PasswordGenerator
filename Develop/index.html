@@ -25,7 +25,7 @@
         <div class="row">
 
           <!--The first of three columns in the main row-->
-          <div class="col-12 col-md-4 blue">
+          <div class="col-12 col-md-12 col-lg-4 blue">
 
             <!--The first of two rows in the first column-->
             <div class="row red choices" id="options-border">
@@ -138,13 +138,13 @@
           </div>
 
           <!--Second of the three columns in the main row.  Contains image and button to toggle between creation criteria-->
-          <div class="col-12 col-md-4 blue vortex">
+          <div class="col-12 col-md-12 col-lg-4 blue vortex">
             <img src="../Assets/secureData2.jpg" alt="Secure Data">
             <button type="button" id="toggle" class="btn btn-primary toggle">Toggle Between Options and Phonetic Alphabet</button>
           </div>
 
           <!--The third of the three columns in the main row. Contains a card for current password and one for all passwords-->
-          <div class="col-12 col-md-4 blue">
+          <div class="col-12 col-md-12 col-lg-4 blue">
 
             <!--The first of two rows in the third column.  It contains the card for only newly generated passwords-->
             <div class="row red created-passwords">
@@ -163,15 +163,54 @@
               </div>
             </div>
 
-            <!--The second of two rows in the third column.  It contains the card for all passwords generated this session.-->
+            <!--The second of two rows in the third column.  It contains the card for Last Five Passwords.-->
             <div class="row created-passwords">
               <div class="col-12">
                 <div class="card card-password" >
                   <div class="card-body">
                     <header>
-                    <h2 class="card-title passwords">Passwords Generated This Session</h2>
+                    <h2 class="card-title passwords">Last Five Passwords</h2>
                     </header>
-                    <textarea readonly id="password" placeholder="Password History" aria-label="Generated Password"></textarea>
+                    <form id="lastFive">
+                      <!--Radio option for choosing to copy the current password-->
+                      <div class="form-check">
+                        <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="currPass" checked>
+                        <label class="form-check-label" for="currPass" id="currPassLabel">
+                          Current Password
+                        </label>
+                      </div>
+
+                      <!--Radio option for choosing to copy the previous password-->
+                      <div class="form-check">
+                        <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="prePass">
+                        <label class="form-check-label" for="prePass" id="prePassLabel">
+                          Previous Password
+                        </label>
+                      </div>
+                      <!--Radio option for choosing two passwords prior-->
+                      <div class="form-check">
+                        <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="twoPrior" >
+                        <label class="form-check-label" for="twoPrior" id="twoPriorLabel">
+                          Two Passwords Prior
+                        </label>
+                      </div>
+
+                      <!--Radio option for choosing three passwords prior-->
+                      <div class="form-check">
+                        <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="threePrior" >
+                        <label class="form-check-label" for="threePrior" id="threePriorLabel">
+                          Three Passwords Prior
+                        </label>
+                      </div>
+
+                      <!--Radio option for choosing the oldest password kept-->
+                      <div class="form-check">
+                        <input class="form-check-input phonetic" type="radio" name="flexRadioDefault" id="oldPass" >
+                        <label class="form-check-label" for="oldPass" id="oldPassLabel">
+                          Oldest Password Kept
+                        </label>
+                      </div>
+                    </form>
                     
                     <!-- Button to copy selected password to clipboard -->
                     <button type="button" class="btn btn-primary new-password">Copy Password to Clipboard</button>

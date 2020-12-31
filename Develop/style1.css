@@ -35,7 +35,7 @@ main {
 
 #p-alphabet-border{
     border-radius: 25px;
-    border: 2px dashed gray;
+    border: 4px dotted gray;
     padding:10px;
     margin:10px;
 }
@@ -68,7 +68,7 @@ div.choices {
     color:white;
 }
 
-#password {
+#password, #lastFive {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -78,15 +78,19 @@ div.choices {
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 85px;
+    padding-bottom: 15px;
     font-size: 1.2rem;
-    text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px dashed #c0c7cf;
+    border: 2px dashed #E21872;
     border-radius: 6px;
     resize: none;
     overflow: hidden;
+}
+
+#password {
+    text-align: center;
+    padding-bottom: 85px;
 }
 
 .card-password{
