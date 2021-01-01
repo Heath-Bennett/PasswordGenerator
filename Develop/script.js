@@ -249,6 +249,7 @@ function createPassword(){
   }
 }
 
+//This function determines how many passwords have been generated and copies the current to history and shuffles the rest down
 function sendToHistory(){
   switch(index){
     case 0:
@@ -302,6 +303,7 @@ function sendToHistory(){
 
 }
 
+//This function abbreviates the password to be displayed in history
 function abbrvPassword(passString){
   let tmpPassword = "";
 
@@ -309,6 +311,36 @@ function abbrvPassword(passString){
   
   console.log(tmpPassword)
   return tmpPassword;
+}
+
+//This function determines which password to copy and calls copy() to copy it
+function copyToClipboard(){
+  if (document.getElementById("currPass").checked === true){
+    copy(currentPassword, document.getElementById("currPass"));
+  }
+  else if (document.getElementById("prePass").checked === true){
+    copy(previousPassword, document.getElementById("prePass"));
+
+  }
+  else if (document.getElementById("twoPrior").checked === true){
+    copy(twoPriorPasswords, document.getElementById("twoPrior"));
+
+  }
+  else if (document.getElementById("threePrior").checked === true){
+    copy(threePriorPasswords, document.getElementById("threePrior"));
+
+  }
+  else {
+    copy(oldestPasswordKept, document.getElementById("oldPass"));
+
+  }
+}
+
+//This takes a password and element as input and copies it to the clipboard
+function copy(password, element){
+  element.select();
+  document.execCommand("copy");
+  alert("Copied the password: " + password);
 }
 
 //***************This is for test purposes only***********************
@@ -335,6 +367,9 @@ document.getElementById("customRange2").addEventListener("change", updateOutput)
 document.getElementById("toggle").addEventListener("click", toggleDisabled);
 
 document.getElementById("new-password").addEventListener("click", generatePassword);
+
+//listens for Copy to clipboard button to be pressed
+document.getElementById("copy-button").addEventListener("click", copyToClipboard);
 
 
 
