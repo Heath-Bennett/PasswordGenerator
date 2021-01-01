@@ -166,7 +166,7 @@ function toggleDisabled(){
   }
 }
 
-//Displays the value chose by user
+//Displays the lenghto f password chosed by user
 function updateOutput (){
   const x = document.getElementById("charValue");
   const y = document.getElementById("customRange2").value;
@@ -316,31 +316,36 @@ function abbrvPassword(passString){
 //This function determines which password to copy and calls copy() to copy it
 function copyToClipboard(){
   if (document.getElementById("currPass").checked === true){
-    copy(currentPassword, document.getElementById("currPass"));
+    copy(currentPassword );
   }
   else if (document.getElementById("prePass").checked === true){
-    copy(previousPassword, document.getElementById("prePass"));
+    copy(previousPassword );
 
   }
   else if (document.getElementById("twoPrior").checked === true){
-    copy(twoPriorPasswords, document.getElementById("twoPrior"));
+    copy(twoPriorPasswords);
 
   }
   else if (document.getElementById("threePrior").checked === true){
-    copy(threePriorPasswords, document.getElementById("threePrior"));
+    copy(threePriorPasswords);
 
   }
   else {
-    copy(oldestPasswordKept, document.getElementById("oldPass"));
+    copy(oldestPasswordKept);
 
   }
+
+  
 }
 
-//This takes a password and element as input and copies it to the clipboard
-function copy(password, element){
-  element.select();
-  document.execCommand("copy");
-  alert("Copied the password: " + password);
+//This takes a password to copy and and a temporary password that holds the current password as input and copies it to the clipboard
+function copy(copyPassword){
+  let temporaryPassword = passwordCard.value;
+  passwordCard.value = copyPassword;
+  document.getElementById("password").select();
+  document.execCommand("Copy");
+  passwordCard.value=temporaryPassword;
+  alert("Copied the password: " + copyPassword);
 }
 
 //***************This is for test purposes only***********************
