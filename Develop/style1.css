@@ -111,8 +111,12 @@ div.col-12, div.col-md-4 {
     margin:auto;
 }
 
-button.new-password {
+button.new-password, #blur{
     background-color: #011C40 ;
+}
+
+#blur {
+    margin-left: 10px;
 }
 
 button.toggle {

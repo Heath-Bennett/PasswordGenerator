@@ -28,6 +28,7 @@ var previousPassword = "";
 var twoPriorPasswords = "";
 var threePriorPasswords = "";
 var oldestPasswordKept = "";
+var isBlurry = false;
 
 
 //Declare constant variables
@@ -37,6 +38,7 @@ const optionBorder = document.getElementById("options-border");
 const phoneticBorder = document.getElementById("p-alphabet-border");
 const passwordCard = document.getElementById("password");
 const phoneticWord = document.getElementById("phonetic-word");
+
 
 //This function determines the type of password the user wants to create.  
 function userOptions(){
@@ -229,6 +231,8 @@ function generatePassword(){
   }
  
   passwordCard.value = password;
+  passwordCard.style.filter = "blur(.5rem)";
+  isBlurry = true;
   sendToHistory();
   password="";
   finalPassword = [];
@@ -236,6 +240,21 @@ function generatePassword(){
   omit = [];
   phoneticWord.value = phoneticWord.defaultValue;
 }
+
+//toggles the blur on current password
+
+function toggleBlur(){
+  if (isBlurry === true){
+    passwordCard.style.filter = "none";
+    isBlurry = false;
+  }
+  else {
+    passwordCard.style.filter = "blur(.5rem)";
+    isBlurry = true;
+  }
+
+}
+
 
 //Generate a random number between zero and length of the array
 function randomNumber(anArray){
@@ -363,5 +382,7 @@ document.getElementById("new-password").addEventListener("click", generatePasswo
 //listens for Copy to clipboard button to be pressed
 document.getElementById("copy-button").addEventListener("click", copyToClipboard);
 
+//listens for the toggle blur button to be pressed
+document.getElementById("blur").addEventListener("click", toggleBlur);
 
 
