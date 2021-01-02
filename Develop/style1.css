@@ -38,6 +38,7 @@ main {
     border: 4px dotted gray;
     padding:10px;
     margin:10px;
+    height:330px;
 }
 
 fieldset > p {

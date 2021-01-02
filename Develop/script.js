@@ -37,8 +37,9 @@ const optionBorder = document.getElementById("options-border");
 const phoneticBorder = document.getElementById("p-alphabet-border");
 const passwordCard = document.getElementById("password");
 
-//check to determine password version and options user selected
+//This function determines the type of password the user wants to create.  
 function userOptions(){
+  let minOneOfFour = true;
   if (optionsValue.hasAttribute("disabled")){
     if (document.getElementById("withSpaces").checked === true){
       wantSpaces = true;
@@ -50,54 +51,61 @@ function userOptions(){
     }
   }
   else{
-    if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true){
-      whatArray = whatArray.concat(lowercase, uppercase, numbers, special);
-    }
-    else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true) {
-      whatArray = whatArray.concat(lowercase, uppercase, special);
-    }
-    else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true) {
-      whatArray = whatArray.concat(lowercase, uppercase, numbers);
-    }
-    else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true) {
-      whatArray = whatArray.concat(lowercase, numbers, special);
-    }
-    else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true && document.getElementById("numeric").checked === true) {
-      whatArray = whatArray.concat(uppercase, special, numbers);
-    }
-    else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true){
-      whatArray = whatArray.concat(lowercase, uppercase);
-    }
-    else if(document.getElementById("lowercase").checked === true && document.getElementById("special").checked === true){
-      whatArray = whatArray.concat(lowercase, special);
-    }
-    else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true){
-      whatArray = whatArray.concat(lowercase, numbers);
-    }
-    else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true){
-      whatArray = whatArray.concat(uppercase, special);
-    }
-    else if(document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true){
-      whatArray = whatArray.concat(uppercase, numbers);
-    }
-    else if(document.getElementById("special").checked === true && document.getElementById("numeric").checked === true){
-      whatArray = whatArray.concat(special, numbers);
-    }
-    else if(document.getElementById("lowercase").checked === true){
-      whatArray = whatArray.concat(lowercase);
-    }
-    else if(document.getElementById("uppercase").checked === true){
-      whatArray = whatArray.concat(uppercase);
-    }
-    else if(document.getElementById("special").checked === true){
-      whatArray = whatArray.concat(special);
+    if (document.getElementById("lowercase").checked === false && document.getElementById("uppercase").checked === false && document.getElementById("numeric").checked === false && document.getElementById("special").checked === false){
+      minOneOfFour = false;
+      let pickOne = alert('Please check at least one of the following check boxes: "Lowercase Characters", "Uppercase Characters", "Numeric Character", or "Special Characters".');
+      minOneOfFour = true;
     }
     else{
-      whatArray = whatArray.concat(numbers);
-    }
-
-    if (document.getElementById("omitChar").checked === true) {
-      omitCharacters();
+      if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true){
+        whatArray = whatArray.concat(lowercase, uppercase, numbers, special);
+      }
+      else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true) {
+        whatArray = whatArray.concat(lowercase, uppercase, special);
+      }
+      else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true) {
+        whatArray = whatArray.concat(lowercase, uppercase, numbers);
+      }
+      else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true && document.getElementById("special").checked === true) {
+        whatArray = whatArray.concat(lowercase, numbers, special);
+      }
+      else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true && document.getElementById("numeric").checked === true) {
+        whatArray = whatArray.concat(uppercase, special, numbers);
+      }
+      else if(document.getElementById("lowercase").checked === true && document.getElementById("uppercase").checked === true){
+        whatArray = whatArray.concat(lowercase, uppercase);
+      }
+      else if(document.getElementById("lowercase").checked === true && document.getElementById("special").checked === true){
+        whatArray = whatArray.concat(lowercase, special);
+      }
+      else if(document.getElementById("lowercase").checked === true && document.getElementById("numeric").checked === true){
+        whatArray = whatArray.concat(lowercase, numbers);
+      }
+      else if(document.getElementById("uppercase").checked === true && document.getElementById("special").checked === true){
+        whatArray = whatArray.concat(uppercase, special);
+      }
+      else if(document.getElementById("uppercase").checked === true && document.getElementById("numeric").checked === true){
+        whatArray = whatArray.concat(uppercase, numbers);
+      }
+      else if(document.getElementById("special").checked === true && document.getElementById("numeric").checked === true){
+        whatArray = whatArray.concat(special, numbers);
+      }
+      else if(document.getElementById("lowercase").checked === true){
+        whatArray = whatArray.concat(lowercase);
+      }
+      else if(document.getElementById("uppercase").checked === true){
+        whatArray = whatArray.concat(uppercase);
+      }
+      else if(document.getElementById("special").checked === true){
+        whatArray = whatArray.concat(special);
+      }
+      else{
+        whatArray = whatArray.concat(numbers);
+      }
+  
+      if (document.getElementById("omitChar").checked === true) {
+        omitCharacters();
+      }
     }
   }
 }
@@ -166,7 +174,7 @@ function toggleDisabled(){
   }
 }
 
-//Displays the lenghto f password chosed by user
+//Displays the length of password chosen by user
 function updateOutput (){
   const x = document.getElementById("charValue");
   const y = document.getElementById("customRange2").value;
@@ -218,13 +226,7 @@ function generatePassword(){
       password = finalPassword.join("");
     }
   }
-  /*************This is for Test Purposes only*************/
-  console.log(password);
-
-  for (let character = 0; character < omit.length; character++){
-    console.log("in omit array: " + omit[character]);
-  }
-  //******************************************************** */
+ 
   passwordCard.value = password;
   sendToHistory();
   password="";
@@ -253,13 +255,11 @@ function createPassword(){
 function sendToHistory(){
   switch(index){
     case 0:
-      console.log("reached here");
       currentPassword = password;
       document.getElementById("currPassLabel").innerHTML = abbrvPassword(currentPassword);
       index ++;
       break;
     case 1:
-      console.log("case 1");
       previousPassword = currentPassword;
       currentPassword = password; 
       document.getElementById("prePassLabel").innerHTML = abbrvPassword(previousPassword);
@@ -309,7 +309,6 @@ function abbrvPassword(passString){
 
   tmpPassword = passString.slice(0, 3) + "........." + passString.slice(-3);
   
-  console.log(tmpPassword)
   return tmpPassword;
 }
 
@@ -348,21 +347,6 @@ function copy(copyPassword){
   alert("Copied the password: " + copyPassword);
 }
 
-//***************This is for test purposes only***********************
-function displayResults() {
-  userOptions();
-  userWord();
-
-  for (let i = 0; i < whatArray.length; i++){
-    console.log(whatArray[i]);
-  }
-  console.log(wantSpaces);
-  whatArray = [];
-  wantSpaces = true;
-  console.log("Test#2: " + inputWord);
-}
-
-
 
 //Checks to see if the password length is changing
 document.getElementById("customRange2").addEventListener("change", updateOutput);
@@ -371,6 +355,7 @@ document.getElementById("customRange2").addEventListener("change", updateOutput)
 //Checks to see if the toggle between options and phonetic alphabet button has been clicked
 document.getElementById("toggle").addEventListener("click", toggleDisabled);
 
+//Listens for the generate password button to be clicked.
 document.getElementById("new-password").addEventListener("click", generatePassword);
 
 //listens for Copy to clipboard button to be pressed
