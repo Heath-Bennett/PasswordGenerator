@@ -36,6 +36,7 @@ const phoneticValue = document.getElementById("p-alphabet");
 const optionBorder = document.getElementById("options-border");
 const phoneticBorder = document.getElementById("p-alphabet-border");
 const passwordCard = document.getElementById("password");
+const phoneticWord = document.getElementById("phonetic-word");
 
 //This function determines the type of password the user wants to create.  
 function userOptions(){
@@ -233,6 +234,7 @@ function generatePassword(){
   finalPassword = [];
   whatArray=[];
   omit = [];
+  phoneticWord.value = phoneticWord.defaultValue;
 }
 
 //Generate a random number between zero and length of the array
