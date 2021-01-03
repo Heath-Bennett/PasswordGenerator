@@ -4,6 +4,9 @@
 
 This program creates and displays a randomly generated password.  It retains the last five passwords generated.  The user is able to choose between the five passwords and copy one of them to the clipboard. There are two different ways to generate a password.  One is using the options menu.  In this menu you can choose between using lowercase characters, uppercase characters, numeric characters, special characters or all four.  It also gives you the option of omitting characters. The second way to generate a password is using the phonetic alphabet method.  This method allows the user to enter a word up to 8 characters in length. It then spells the word out using the phonetic alphabet. The user will not be able to combine the options and phonetic alphabet methods. A pink button is used to toggle between buttons. 
 
+[Link to GitHub page](https://github.com/Heath-Bennett/PasswordGenerator.git)
+[Link to deployed page](https://heath-bennett.github.io/PasswordGenerator/)
+
 ## Table of Contents
 
 * [Picture of Page](#page)
