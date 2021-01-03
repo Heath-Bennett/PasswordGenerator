@@ -1,0 +1,125 @@
+body {
+    background-color: #011C40;
+}
+h1{
+    padding:15px;
+    font-size: 64px;
+    color:#E21872;
+    background-color: #011126;
+    border-bottom: 2px solid #05F2F2;
+}
+
+output {
+    color:#E21872;
+    font-weight: bold;
+}
+
+h2.choices {
+    color:#E21872;
+}
+
+h2.passwords {
+    color:#0455BF;
+}
+
+main {
+    margin-top:50px;;
+}
+#options-border, div.created-passwords{
+    border-radius: 25px;
+    border: 2px solid #05F2F2;
+    padding:10px;
+    margin:10px;
+    
+}
+
+#p-alphabet-border{
+    border-radius: 25px;
+    border: 4px dotted gray;
+    padding:10px;
+    margin:10px;
+    height:330px;
+}
+
+fieldset > p {
+    margin-top: 15px;
+}
+
+fieldset > div > input, div > span {
+    margin-top: 15px;
+}
+
+fieldset > div > input:hover{
+    border: 5px solid #E21872;
+}
+
+label.form-label {
+    font-size: 20px;
+}
+
+img{
+    max-width: 95%;
+    border:2px solid #011126;
+}
+div.vortex{
+    text-align: center;
+}
+
+div.choices {
+    color:white;
+}
+
+#password, #lastFive {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    display: block;
+    width: 100%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px dashed #E21872;
+    border-radius: 6px;
+    resize: none;
+    overflow: hidden;
+}
+
+#password {
+    text-align: center;
+    padding-bottom: 85px;
+}
+
+.card-password{
+    padding: 30px 40px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+div.card{
+    padding:5px;
+}
+.card-body {
+    min-height: 100px;
+}
+
+div.col-12, div.col-md-4 {
+    margin:auto;
+}
+
+button.new-password, #blur{
+    background-color: #011C40 ;
+}
+
+#blur {
+    margin-left: 10px;
+}
+
+button.toggle {
+    background-color: #E21872;
+    margin-top: 20px;
+}
