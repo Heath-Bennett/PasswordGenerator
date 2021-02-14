@@ -104,9 +104,9 @@ The password history card assigns the last five passwords generated to radio box
 
 &nbsp;
 
-`#E21872`                  |  `#0455BF`                |`#05F2F2`                  |   `#011126`               |  `#FFFFFF`                |`#011C40`                  |
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-![#E21872](https://via.placeholder.com/150x300/E21872/000000?text=+)  | ![#0455BF](https://via.placeholder.com/150x300/0455BF/000000?text=+) | ![#05F2F2](https://via.placeholder.com/150x300/05F2F2/000000?text=+) | ![#011126](https://via.placeholder.com/150x300/011126/000000?text=+) |![#FFFFFF](https://via.placeholder.com/150x300/FFFFFF/000000?text=+)  | ![#011C40](https://via.placeholder.com/150x300/011C40/000000?text=+)
+`#E21872`                  |  `#0455BF`                |`#05F2F2`                  |   `#011126`               |  `#FFFFFF`                |`#011C40`                  |`#808080`                  |
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
+![#E21872](https://via.placeholder.com/150x300/E21872/000000?text=+)  | ![#0455BF](https://via.placeholder.com/150x300/0455BF/000000?text=+) | ![#05F2F2](https://via.placeholder.com/150x300/05F2F2/000000?text=+) | ![#011126](https://via.placeholder.com/150x300/011126/000000?text=+) |![#FFFFFF](https://via.placeholder.com/150x300/FFFFFF/000000?text=+)  | ![#011C40](https://via.placeholder.com/150x300/011C40/000000?text=+)| ![#808080](https://via.placeholder.com/150x300/808080/000000?text=+)
 
 [Table of Contents](#Table-of-Contents)
 
